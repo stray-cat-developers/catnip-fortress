@@ -1,13 +1,20 @@
+![catnip-fortress](https://github.com/stray-cat-developers/catnip-fortress/assets/8306527/8cf97b31-7325-49cb-9d5a-75d223c01b9e)
+
+Welcome to CatNip Fortress, the fortified hub for managing your digital realm with elegance and efficiency.  
+Utilizing the robustness of Nuxt.js and the sleekness of Vuestic-UI, CatNip Fortress offers a powerful, customizable admin dashboard designed to streamline your project management tasks in a visually appealing environment.
+
+## TODOS
+
+- [ ] Integrate Authentication
+- [ ] Implement Permission Guard
+- [ ] Dynamic Routes
+- [ ] Add More Sample Pages
+
 ## Prerequisites
 
 Before diving into the CatNip Fortress, ensure you have the following installed on your system:
 - Node.js (LTS version recommended)
 - Yarn (Package Manager)
-
-## TODOS
-- [ ] Integrate Authentication
-- [ ] Implement Permission Guard
-- [ ] Dynamic Routes
 
 ## Getting Started
 
