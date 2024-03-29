@@ -4,10 +4,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, ChartOptions } from 'chart.js'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, type ChartOptions } from 'chart.js'
 import { ChoroplethController, ProjectionScale, ColorScale, GeoFeature } from 'chartjs-chart-geo'
 import { watchEffect } from 'vue'
-import { ChartData } from 'chart.js'
+import { type ChartData } from 'chart.js'
 
 ChartJS.register(
   Title,

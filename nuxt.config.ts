@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  css: ["~/assets/css/main.css"],
+  runtimeConfig: {
+    hosts: {
+      auth: 'http://localhost:4300',
+    },
+  },
+  css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -9,16 +14,20 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@vuestic/nuxt", "@pinia/nuxt"],
+  modules: ['@vuestic/nuxt', '@pinia/nuxt'],
   imports: {
-    dirs: ["./stores"],
+    dirs: ['./stores'],
   },
-  pinia: {
-    autoImports: ["defineStore", "acceptHMRUpdate"],
-  },
+  pinia: {},
   vuestic: {
     config: {},
   },
 
   devtools: { enabled: true },
-});
+  typescript: {
+    typeCheck: true,
+  },
+  build: {
+    transpile: ['chart.js'],
+  },
+})

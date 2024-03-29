@@ -4,9 +4,9 @@
 
 <script lang="ts" setup>
 import { Pie } from 'vue-chartjs'
-import type { ChartOptions } from 'chart.js'
+import { type ChartOptions } from 'chart.js'
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
-import { TPieChartData } from '../../../data/types'
+import { type TPieChartData } from '~/types'
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 

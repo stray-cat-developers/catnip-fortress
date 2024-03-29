@@ -1,4 +1,4 @@
-import { Chart, TooltipModel } from 'chart.js'
+import { Chart, type TooltipModel } from 'chart.js'
 import { computePosition, flip, shift } from '@floating-ui/dom'
 
 const getOrCreateTooltip = (chart: Chart) => {

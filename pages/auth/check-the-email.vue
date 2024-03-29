@@ -14,8 +14,7 @@
 
 <script lang="ts" setup>
 definePageMeta({
-  name: "recover-password-email",
-  layout: "auth",
-});
-
+  name: 'recover-password-email',
+  layout: 'auth',
+})
 </script>

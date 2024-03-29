@@ -1,7 +1,12 @@
 <template>
   <VaLayout
     :top="{ fixed: true, order: 2 }"
-    :left="{ fixed: true, absolute: breakpoints.mdDown, order: 1, overlay: breakpoints.mdDown && !isSidebarMinimized }"
+    :left="{
+      fixed: true,
+      absolute: breakpoints.mdDown,
+      order: 1,
+      overlay: breakpoints.mdDown && !isSidebarMinimized,
+    }"
     @leftOverlayClick="isSidebarMinimized = true"
   >
     <template #top>
@@ -45,7 +50,7 @@ const GlobalStore = useGlobalStore()
 const breakpoints = useBreakpoint()
 
 const sidebarWidth = ref('16rem')
-const sidebarMinimizedWidth = ref(undefined)
+const sidebarMinimizedWidth = ref('4.5rem')
 
 const isMobile = ref(false)
 const isTablet = ref(false)

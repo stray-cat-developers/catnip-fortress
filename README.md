@@ -5,7 +5,7 @@ Utilizing the robustness of Nuxt.js and the sleekness of Vuestic-UI, CatNip Fort
 
 ## TODOS
 
-- [ ] Integrate Authentication
+- [x] Integrate Authentication
 - [ ] Implement Permission Guard
 - [ ] Dynamic Routes
 - [ ] Add More Sample Pages
@@ -13,6 +13,7 @@ Utilizing the robustness of Nuxt.js and the sleekness of Vuestic-UI, CatNip Fort
 ## Prerequisites
 
 Before diving into the CatNip Fortress, ensure you have the following installed on your system:
+
 - Node.js (LTS version recommended)
 - Yarn (Package Manager)
 
@@ -43,11 +44,12 @@ To launch CatNip Fortress on your local development server, run:
 yarn dev
 ```
 
-Your CatNip Fortress dashboard is now running and can be accessed at `http://localhost:3000`. 
+Your CatNip Fortress dashboard is now running and can be accessed at `http://localhost:3000`.
 
 ## Features
 
 CatNip Fortress integrates the following key features:
+
 - **Nuxt.js Framework**: For server-side rendering, routing, and application scaffolding.
 - **Vue 3, Nuxt.js, Vite, Pinia, and Tailwind CSS -** Fast and efficient development
 - **Dark Theme -** Modern and eye-catching

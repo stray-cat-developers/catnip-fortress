@@ -6,7 +6,7 @@
 import { Bubble } from 'vue-chartjs'
 import type { ChartOptions } from 'chart.js'
 import { Chart as ChartJS, Title, Tooltip, Legend, PointElement, LinearScale } from 'chart.js'
-import { TBubbleChartData } from '../../../data/types'
+import { type TBubbleChartData } from '~/types'
 
 ChartJS.register(Title, Tooltip, Legend, PointElement, LinearScale)
 

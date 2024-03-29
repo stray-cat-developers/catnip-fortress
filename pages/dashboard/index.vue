@@ -6,9 +6,10 @@
 </template>
 
 <script setup lang="ts">
-import DataSection from "~/components/data-section/DataSection.vue";
+import DataSection from '~/components/data-section/DataSection.vue'
 
 definePageMeta({
-  layout: "private",
-});
+  layout: 'private',
+  private: true,
+})
 </script>

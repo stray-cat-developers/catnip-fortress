@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, Ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, type Ref, onMounted, onBeforeUnmount } from 'vue'
 import MediumEditor from 'medium-editor'
 
 const props = withDefaults(

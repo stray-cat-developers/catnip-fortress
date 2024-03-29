@@ -65,9 +65,9 @@ import { useRouter } from 'vue-router'
 import { useForm, useToast } from 'vuestic-ui'
 
 definePageMeta({
-  name: "signup",
-  layout: "auth",
-});
+  name: 'signup',
+  layout: 'auth',
+})
 
 const { validate } = useForm('form')
 const { push } = useRouter()
