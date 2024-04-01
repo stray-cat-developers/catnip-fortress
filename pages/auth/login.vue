@@ -19,15 +19,11 @@
         :type="isPasswordVisible.value ? 'text' : 'password'"
         class="mb-4"
         label="Password"
-        @clickAppendInner.stop="
-          isPasswordVisible.value = !isPasswordVisible.value
-        "
+        @clickAppendInner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
           <VaIcon
-            :name="
-              isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'
-            "
+            :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
             class="cursor-pointer"
             color="secondary"
           />
@@ -35,18 +31,9 @@
       </VaInput>
     </VaValue>
 
-    <div
-      class="auth-layout__options flex flex-col sm:flex-row items-start sm:items-center justify-between"
-    >
-      <VaCheckbox
-        v-model="formData.keepLoggedIn"
-        class="mb-2 sm:mb-0"
-        label="Keep me signed in on this device"
-      />
-      <NuxtLink
-        to="recover-password"
-        class="mt-2 sm:mt-0 sm:ml-1 font-semibold text-primary"
-      >
+    <div class="auth-layout__options flex flex-col sm:flex-row items-start sm:items-center justify-between">
+      <VaCheckbox v-model="formData.keepLoggedIn" class="mb-2 sm:mb-0" label="Keep me signed in on this device" />
+      <NuxtLink to="recover-password" class="mt-2 sm:mt-0 sm:ml-1 font-semibold text-primary">
         Forgot password?
       </NuxtLink>
     </div>
@@ -59,28 +46,29 @@
 
 <script setup lang="ts">
 definePageMeta({
-  name: "login",
-  layout: "auth",
-});
+  name: 'login',
+  layout: 'auth',
+})
 
-import { reactive } from "vue";
-import { useToast, useForm } from "vuestic-ui";
-import { useRouter } from "vue-router";
+import { reactive } from 'vue'
+import { useForm } from 'vuestic-ui'
+import { useRouter } from 'vue-router'
 
 const formData = reactive({
-  email: "",
-  password: "",
+  email: '',
+  password: '',
   keepLoggedIn: false,
-});
+})
 
-const router = useRouter();
-const { init } = useToast();
-const { validate } = useForm("form");
+const user = useUserStore()
+const router = useRouter()
+const { validate } = useForm('form')
 
-const submit = () => {
+const submit = async () => {
   if (validate()) {
-    init({ message: "You've successfully logged in", color: "success" });
-    router.push("/dashboard");
+    await user.login(formData.email, formData.password)
+    await user.refresh()
+    router.push('/dashboard')
   }
-};
+}
 </script>

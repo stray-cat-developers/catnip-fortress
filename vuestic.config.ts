@@ -1,5 +1,5 @@
-import iconsConfig from "./configs/vuestic-ui/icons-config/icons-config";
-import colors from "./configs/vuestic-ui/themes";
+import iconsConfig from './configs/vuestic-ui/icons-config/icons-config'
+import colors from './configs/vuestic-ui/themes'
 import { defineVuesticConfig } from 'vuestic-ui'
 
 export default defineVuesticConfig({

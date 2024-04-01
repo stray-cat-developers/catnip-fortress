@@ -33,8 +33,6 @@ defineProps({
 
 const GlobalStore = useGlobalStore()
 const { isSidebarMinimized } = storeToRefs(GlobalStore)
-
-
 </script>
 
 <style lang="scss" scoped>

@@ -6,7 +6,7 @@
 import { Doughnut } from 'vue-chartjs'
 import type { ChartOptions } from 'chart.js'
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
-import { TDoughnutChartData } from '../../../data/types'
+import { type TDoughnutChartData } from '~/types'
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
