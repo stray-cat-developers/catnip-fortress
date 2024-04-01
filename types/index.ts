@@ -11,3 +11,9 @@ export type TDoughnutChartData = ChartData<'doughnut', any, any>
 export type TPieChartData = ChartData<'pie', any, any>
 
 export type TChartData = TLineChartData | TBarChartData | TBubbleChartData | TDoughnutChartData | TPieChartData
+
+export interface INavigationRoute {
+  name: string
+  meta: { icon?: string; displayName: string }
+  children: INavigationRoute[]
+}

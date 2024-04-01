@@ -4,11 +4,11 @@
       <VaCollapse v-for="(route, index) in navigationRoutes.routes" :key="index">
         <template #header="{ value: isCollapsed }">
           <VaSidebarItem
-            :to="route.children ? undefined : { name: route.name }"
+            :to="route.children.length > 0 ? undefined : { name: route.name }"
             :active="routeHasActiveChild(route)"
             :active-color="activeColor"
             :text-color="textColor(route)"
-            :aria-label="`${route.children ? 'Open category ' : 'Visit'} ${t(route.displayName)}`"
+            :aria-label="`${route.children.length > 0 ? 'Open category ' : 'Visit'} ${t(route.meta.displayName)}`"
             role="button"
             hover-opacity="0.10"
           >
@@ -21,8 +21,8 @@
                 :color="iconColor(route)"
               />
               <VaSidebarItemTitle class="flex justify-between items-center leading-5 font-semibold">
-                {{ t(route.displayName) }}
-                <VaIcon v-if="route.children" :name="arrowDirection(isCollapsed)" size="20px" />
+                {{ t(route.meta.displayName) }}
+                <VaIcon v-if="route.children.length > 0" :name="arrowDirection(isCollapsed)" size="20px" />
               </VaSidebarItemTitle>
             </VaSidebarItemContent>
           </VaSidebarItem>
@@ -34,12 +34,12 @@
               :active="isActiveChildRoute(childRoute)"
               :active-color="activeColor"
               :text-color="textColor(childRoute)"
-              :aria-label="`Visit ${t(route.displayName)}`"
+              :aria-label="`Visit ${t(route.meta.displayName)}`"
               hover-opacity="0.10"
             >
               <VaSidebarItemContent class="py-3 pr-2 pl-11">
                 <VaSidebarItemTitle class="leading-5 font-semibold">
-                  {{ t(childRoute.displayName) }}
+                  {{ t(childRoute.meta.displayName) }}
                 </VaSidebarItemTitle>
               </VaSidebarItemContent>
             </VaSidebarItem>
@@ -52,11 +52,9 @@
 <script lang="ts">
 import { defineComponent, watch, ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
-
 import { useI18n } from 'vue-i18n'
 import { useColors } from 'vuestic-ui'
-
-import navigationRoutes, { type INavigationRoute } from './NavigationRoutes'
+import { type INavigationRoute } from '~/types'
 
 export default defineComponent({
   name: 'Sidebar',
@@ -70,6 +68,7 @@ export default defineComponent({
     const { getColor, colorToRgba } = useColors()
     const route = useRoute()
     const { t } = useI18n()
+    const navigationRoutes = useNavigatableRoutes()
 
     const value = ref<boolean[]>([])
 
@@ -81,7 +80,7 @@ export default defineComponent({
     const isActiveChildRoute = (child: INavigationRoute) => route.name === child.name
 
     const routeHasActiveChild = (section: INavigationRoute) => {
-      if (!section.children) {
+      if (section.children.length == 0) {
         return route.path.endsWith(`${section.name}`)
       }
 

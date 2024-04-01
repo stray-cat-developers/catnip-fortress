@@ -16,5 +16,6 @@
 definePageMeta({
   name: 'recover-password-email',
   layout: 'auth',
+  display: false,
 })
 </script>

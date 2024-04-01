@@ -6,7 +6,7 @@ export default <RouterOptions>{
     {
       name: 'root',
       path: '/',
-      redirect: '/dashboard',
+      redirect: '/dashboard'
     },
   ],
 }

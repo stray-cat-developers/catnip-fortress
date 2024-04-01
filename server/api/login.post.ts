@@ -16,6 +16,9 @@ export default defineEventHandler(async (event) => {
     setResponseStatus(event, 400)
     if (axios.isAxiosError(e)) {
       setResponseStatus(event, e.status)
+      setCookie(event, 'SESSION', '', {
+        expires: new Date(0),
+      })
       return { message: e.message }
     } else {
       return { message: (e as Error).message }

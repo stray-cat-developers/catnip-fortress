@@ -27,13 +27,13 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useColors } from 'vuestic-ui'
 import VaIconMenuCollapsed from '../icons/VaIconMenuCollapsed.vue'
-import NavigationRoutes from '../sidebar/NavigationRoutes'
 import { useGlobalStore } from '~/stores/global-store'
 import { storeToRefs } from 'pinia'
 
 const GlobalStore = useGlobalStore()
 const { isSidebarMinimized } = storeToRefs(GlobalStore)
 const router = useRouter()
+const navigationRoutes = useNavigatableRoutes()
 const route = useRoute()
 const { t } = useI18n()
 
@@ -47,7 +47,7 @@ const findRouteName = (name: string) => {
   const traverse = (routers: any[]): string => {
     for (const router of routers) {
       if (router.name === name) {
-        return router.displayName
+        return router.meta.displayName
       }
       if (router.children) {
         const result = traverse(router.children)
@@ -59,11 +59,11 @@ const findRouteName = (name: string) => {
     return ''
   }
 
-  return traverse(NavigationRoutes.routes)
+  return traverse(router.getRoutes())
 }
 
 const items = computed(() => {
-  const result: { label: string; to: string; hasChildren: boolean }[] = []
+  const result: BreadcrumbNavigationItem[] = []
   route.matched.forEach((route) => {
     const labelKey = findRouteName(route.name as string)
     if (!labelKey) {
@@ -72,7 +72,7 @@ const items = computed(() => {
     result.push({
       label: t(labelKey),
       to: route.path,
-      hasChildren: route.children && route.children.length > 0,
+      hasChildren: route.children.length > 0,
     })
   })
   return result

@@ -8,6 +8,12 @@ declare module '#app' {
      * user should have one of roles, if required
      */
     roles?: string[]
+
+    displayName: string
+
+    icon?: string
+
+    display?: boolean
   }
 }
 

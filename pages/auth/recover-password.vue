@@ -25,6 +25,7 @@ import { useRouter } from 'vue-router'
 definePageMeta({
   name: 'recover-password',
   layout: 'auth',
+  display: false,
 })
 
 const email = ref('')

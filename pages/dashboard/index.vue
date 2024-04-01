@@ -11,5 +11,8 @@ import DataSection from '~/components/data-section/DataSection.vue'
 definePageMeta({
   layout: 'private',
   private: true,
+  display: true,
+  displayName: 'menu.dashboard',
+  icon: 'vuestic-iconset-dashboard',
 })
 </script>
