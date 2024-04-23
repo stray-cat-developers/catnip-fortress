@@ -7,6 +7,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
       // redirect to login
       return navigateTo({ name: 'login' })
     }
+
+    if (!!to.meta.roles && !(to.meta.roles as string[]).includes(user.role ?? '')) {
+      // abort navigation
+      return abortNavigation('you don\'t have required roles')
+    }
   }
 
   if (to.path == from.path) {

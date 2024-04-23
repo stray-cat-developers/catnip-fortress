@@ -6,7 +6,7 @@ Utilizing the robustness of Nuxt.js and the sleekness of Vuestic-UI, CatNip Fort
 ## TODOS
 
 - [x] Integrate Authentication
-- [ ] Implement Permission Guard
+- [x] Implement Permission Guard
 - [ ] Dynamic Routes
 - [ ] Add More Sample Pages
 
